@@ -13,5 +13,8 @@ base_url= "https://rahulshettyacademy.com"
 testpaths = ["tests"]
 pythonpath = ["."]
 
+[pytest]
+addopts = --html=report.html --self-contained-html --junitxml==results.xml
+
 
 
