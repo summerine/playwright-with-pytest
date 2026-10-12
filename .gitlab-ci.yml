@@ -3,16 +3,24 @@ image:
   name: mcr.microsoft.com/playwright/python:v1.48.0-jammy
 stages:
   - test
+  - report
 
 run_playwright_tests:
   stage: test
+  variables:
+    UV_CACHE_DIR = "$CI_PROJECT_DIR/.cache/uv"
+  cache:
+    paths:
+      - .cache/uv
   before_script:
     - python -v
+    - uv sync --frozen
     # 1. Upgrade pip and install package dependencies
     - pip install --upgrade pip
     - pip install -r requirements.txt
     # 2. Install necessary system dependencies for Playwright
     - playwright install-deps
+    - pytest --alluredir=allure-results --junitxml=reports/results.xml --screenshot=only-on-failure --tracing=retain-on-failure --output=test-results
   script:
     # 3. Run your tests in headless mode (default for CI)
     - pytest
@@ -21,8 +29,24 @@ run_playwright_tests:
     when: always
     paths:
       - test-results/
-      - report.html
+      - allure-results/
+      - output/
     expire_in: 7 days
     reports:
-      junit: results.xml
+      junit: reports/results.xml
+
+  allure-report:
+    stage: report
+    image: node:20
+    needs:
+      -job: playwright-tests
+      artifacts: true
+    when: always
+    script:
+      - apt-get update  apt-get install -y default-jre-headless
+      - npx --yes allure-commandline generate allure-results --clean -o allure-report
+    artifacts:
+      expire_in: 1 week
+      paths:
+        - allure-report/
 

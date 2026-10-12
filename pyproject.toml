@@ -3,8 +3,9 @@ name = "playwright-python"
 version = "0.1.0"
 requires-python = ">=3.14"
 dependencies = [
+    "allure-pytest>=2.16.2",
     "playwright>=1.63.0",
-    "pytest-playwright>=0.9.0",
+    "pytest-playwright>=0.10.0",
     "python-dotenv>=1.2.4",
 ]
 
@@ -13,8 +14,6 @@ base_url= "https://rahulshettyacademy.com"
 testpaths = ["tests"]
 pythonpath = ["."]
 
-[pytest]
-addopts = --html=report.html --self-contained-html --junitxml==results.xml
 
 
 

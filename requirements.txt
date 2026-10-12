@@ -1,4 +1,4 @@
-pytest-playwright
+pytest-playwright==0.10.0
 pytest
 playwright==1.63.0
-pytest-html==4.2.0
+allure-pytest
