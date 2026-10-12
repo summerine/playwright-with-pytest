@@ -1,0 +1,23 @@
+# Use Microsoft's official Playwright image that comes with Python and all browsers pre-installed
+image: ://microsoft.com
+
+stages:
+  - test
+
+run_playwright_tests:
+  stage: test
+  before_script:
+    # 1. Upgrade pip and install package dependencies
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+    # 2. Install necessary system dependencies for Playwright
+    - playwright install-deps
+  script:
+    # 3. Run your tests in headless mode (default for CI)
+    - pytest
+  artifacts:
+    # 4. Save screenshots or reports if tests fail
+    when: always
+    paths:
+      - test-results/
+    expire_in: 7 days
