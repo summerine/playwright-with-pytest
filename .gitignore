@@ -1,0 +1,16 @@
+
+#Python
+.venv/
+__pycache__/
+.pytest_cache/
+
+
+#Playwright artefacts
+test-results/
+playwright-report/
+output/
+
+#Secret
+env.py
+auth.json
+playwright/.auth/
