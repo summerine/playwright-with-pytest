@@ -14,7 +14,6 @@ run_playwright_tests:
     paths:
       - .cache/uv
   before_script:
-    - uv sync --frozen
     # 1. Upgrade pip and install package dependencies
     - pip install --upgrade pip
     - pip install -r requirements.txt
@@ -37,8 +36,8 @@ allure-report:
   stage: report
   image: node:20
   needs:
-    -job: run_playwright_tests
-    artifacts: true
+    - job: run_playwright_tests
+      artifacts: true
   when: always
   script:
     - apt-get update && apt-get install -y default-jre-headless
