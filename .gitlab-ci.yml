@@ -1,5 +1,6 @@
 # Use Microsoft's official Playwright image that comes with Python and all browsers pre-installed
-image: mcr.microsoft.com/playwright/python:v1.48.0-jammy
+image:
+  name: mcr.microsoft.com/playwright/python:v1.48.0-jammy
 
 stages:
   - test
