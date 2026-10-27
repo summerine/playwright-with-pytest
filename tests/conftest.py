@@ -19,5 +19,6 @@ def logged_in_page(login_page:Page):
     login_page.locator("#userEmail").fill(CLIENT_USEREMAIL)
     login_page.locator("#userPassword").fill(CLIENT_USERPASSWORD)
     login_page.locator("#login").click()
+    login_page.wait_for_url("**/dashboard/**")
     return login_page
 
