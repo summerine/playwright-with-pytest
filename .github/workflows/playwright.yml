@@ -16,6 +16,11 @@ jobs:
       - run: pip install -r requirements.txt
       - run: playwright install --with-deps chromium
       - run: pytest
+        env:
+          BASE_URL: ${{ vars.BASE_URL }}
+          CLIENT_USEREMAIL: ${{ secrets.CLIENT_USEREMAIL }}
+          CLIENT_USERPASSWORD: ${{ secrets.CLIENT_USER_PASSWORD }}
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
