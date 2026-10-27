@@ -1,7 +1,13 @@
 import pytest
+import os
+from dotenv import load_dotenv
 from playwright.sync_api import Page
 
-from env import BASE_URL, CLIENT_USEREMAIL, CLIENT_USERPASSWORD
+load_dotenv()
+
+BASE_URL = os.getenv["BASE_URL"]
+CLIENT_USEREMAIL = os.getenv["CLIENT_USEREMAIL"]
+CLIENT_USERPASSWORD = os.getenv["CLIENT_USERPASSWORD"]
 
 @pytest.fixture
 def login_page(page:Page):
