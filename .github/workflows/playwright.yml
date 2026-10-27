@@ -17,7 +17,7 @@ jobs:
       - run: playwright install --with-deps chromium
       - run: pytest
         env:
-          BASE_URL: ${{ vars.BASE_URL }}
+          BASE_URL: ${{ secrets.BASE_URL }}
           CLIENT_USEREMAIL: ${{ secrets.CLIENT_USEREMAIL }}
           CLIENT_USERPASSWORD: ${{ secrets.CLIENT_USER_PASSWORD }}
 
