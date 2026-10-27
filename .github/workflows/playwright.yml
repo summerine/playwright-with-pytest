@@ -19,7 +19,7 @@ jobs:
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           CLIENT_USEREMAIL: ${{ secrets.CLIENT_USEREMAIL }}
-          CLIENT_USERPASSWORD: ${{ secrets.CLIENT_USER_PASSWORD }}
+          CLIENT_USERPASSWORD: ${{ secrets.CLIENT_USERPASSWORD }}
 
       - uses: actions/upload-artifact@v6
         if: always()
