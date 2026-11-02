@@ -3,3 +3,4 @@ pytest
 playwright==1.63.0
 allure-pytest
 python-dotenv
+pytest-bdd
