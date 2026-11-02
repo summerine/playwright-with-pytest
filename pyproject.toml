@@ -4,6 +4,7 @@ version = "0.1.0"
 requires-python = ">=3.14"
 dependencies = [
     "allure-pytest>=2.16.2",
+    "gherkin-official>=42.0.1",
     "playwright>=1.63.0",
     "pytest-playwright>=0.10.0",
     "python-dotenv>=1.2.4",
@@ -13,6 +14,12 @@ dependencies = [
 base_url= "https://rahulshettyacademy.com"
 testpaths = ["tests"]
 pythonpath = ["."]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pytest-bdd>=9.0.1",
+]
 
 
 
