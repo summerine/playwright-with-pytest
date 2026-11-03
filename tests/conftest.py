@@ -9,6 +9,15 @@ BASE_URL = os.environ["BASE_URL"]
 CLIENT_USEREMAIL = os.environ["CLIENT_USEREMAIL"]
 CLIENT_USERPASSWORD = os.environ["CLIENT_USERPASSWORD"]
 
+
+@pytest.fixture
+def client_useremail():
+    return CLIENT_USEREMAIL
+
+@pytest.fixture
+def client_userpassword():
+    return CLIENT_USERPASSWORD
+
 @pytest.fixture
 def login_page(page:Page):
     page.goto(BASE_URL)
