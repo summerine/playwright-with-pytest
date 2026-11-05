@@ -1,4 +1,4 @@
-Feature: Ecommerce Login
+Feature: Ecommerce Successful Login
     The user should be able to login to their account
 
 Scenario: Login to the account should be successful
